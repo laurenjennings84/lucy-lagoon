@@ -1,4 +1,4 @@
-/* Lucy's 11+ Lagoon — History (Time Travel), Geography (Explorer), Stage Door (arts, music, computing, D&T, French) */
+/* Lucy's 11+ Lagoon — History (Time Travel), Geography (Explorer), Stage Door (arts, music, computing, D&T, Spanish) */
 window.SETS = window.SETS || [];
 (function(){
 const R = (a,b) => a + Math.floor(Math.random()*(b-a+1));
@@ -207,7 +207,7 @@ SETS.push(
     {q:"Mexico is famous for monarch butterflies that migrate there from…", opts:["Canada and the USA","Australia","Africa","Japan"], a:"Canada and the USA"}
   ]},
 
-/* ---------------- STAGE DOOR: music, art, D&T, computing, French ---------------- */
+/* ---------------- STAGE DOOR: music, art, D&T, computing, Spanish ---------------- */
 { id:"ar-notes-match", subject:"arts", topic:"Music", title:"Note Values", level:5, type:"match",
   prompt:"Match each note to how many beats it lasts (in 4/4 time).",
   pairs:[["semibreve","4 beats"],["minim","2 beats"],["crotchet","1 beat"],["quaver","½ beat"],["dotted minim","3 beats"]]},
@@ -293,18 +293,33 @@ SETS.push(
     {q:"Which is the strongest password?", opts:["Axolotl!Teal#Sing42","password","12345","lucy"], a:"Axolotl!Teal#Sing42"},
     {q:"Who invented the World Wide Web?", opts:["Tim Berners-Lee","Alan Turing","Ada Lovelace","Steve Jobs"], a:"Tim Berners-Lee"}
   ]},
-{ id:"ar-french", subject:"arts", topic:"Languages", title:"Bonjour Lagoon", level:5, type:"match",
-  prompt:"Match the French word to English.",
-  pairs:[["bleu","blue"],["violet","purple"],["le chat","the cat"],["le chien","the dog"],["chanter","to sing"],["un papillon","a butterfly"]]},
-{ id:"ar-french-2", subject:"arts", topic:"Languages", title:"French Phrases", level:6, type:"quiz",
+{ id:"ar-spanish", subject:"arts", topic:"Spanish", title:"¡Hola Lagoon!", level:5, type:"match",
+  prompt:"Match the Spanish word to English.",
+  pairs:[["azul","blue"],["morado","purple"],["el gato","the cat"],["el perro","the dog"],["cantar","to sing"],["la mariposa","the butterfly"]]},
+{ id:"ar-spanish-2", subject:"arts", topic:"Spanish", title:"Spanish Phrases", level:5, type:"quiz",
   items:[
-    {q:"'Je m'appelle Lucy' means…", opts:["My name is Lucy","I like Lucy","Lucy is here","Hello Lucy"], a:"My name is Lucy"},
-    {q:"How do you say 'Thank you' in French?", opts:["merci","s'il vous plaît","bonjour","au revoir"], a:"merci"},
-    {q:"'J'ai neuf ans' means…", opts:["I am nine years old","I have nine cats","It is nine o'clock","I have new shoes"], a:"I am nine years old"},
-    {q:"What is 'Wednesday' in French?", opts:["mercredi","lundi","vendredi","dimanche"], a:"mercredi"},
-    {q:"'Quel temps fait-il ?' asks about…", opts:["the weather","the time","your name","your age"], a:"the weather"},
-    {q:"What is 'quinze'?", opts:["15","50","5","14"], a:"15"},
-    {q:"'J'adore les insectes' means…", opts:["I love insects","I hate insects","I draw insects","I am an insect"], a:"I love insects"}
+    {q:"'Me llamo Lucy' means…", opts:["My name is Lucy","I like Lucy","Lucy is here","Hello Lucy"], a:"My name is Lucy"},
+    {q:"How do you say 'Thank you' in Spanish?", opts:["gracias","por favor","hola","adiós"], a:"gracias"},
+    {q:"'Tengo nueve años' means…", opts:["I am nine years old","I have nine cats","It is nine o'clock","I have new shoes"], a:"I am nine years old", why:"In Spanish you 'have' years: tener = to have."},
+    {q:"What is 'Wednesday' in Spanish?", opts:["miércoles","lunes","viernes","domingo"], a:"miércoles"},
+    {q:"'¿Qué tiempo hace?' asks about…", opts:["the weather","the time","your name","your age"], a:"the weather"},
+    {q:"What is 'quince'?", opts:["15","50","5","14"], a:"15"},
+    {q:"'Me encantan los insectos' means…", opts:["I love insects","I hate insects","I draw insects","I am an insect"], a:"I love insects"},
+    {q:"Spanish questions start with which punctuation mark?", opts:["¿ (an upside-down question mark)","! (an exclamation mark)","« (a speech mark)","nothing"], a:"¿ (an upside-down question mark)"}
+  ]},
+{ id:"ar-spanish-numbers", subject:"arts", topic:"Spanish", title:"Números", level:5, type:"match",
+  prompt:"Match the Spanish numbers.",
+  pairs:[["uno","1"],["cinco","5"],["diez","10"],["doce","12"],["veinte","20"],["cien","100"]]},
+{ id:"ar-spanish-grammar", subject:"arts", topic:"Spanish", title:"Spanish Grammar Stretch", level:7, type:"quiz",
+  items:[
+    {q:"Which word means 'the' before a <b>feminine</b> singular noun, like <i>casa</i> (house)?", opts:["la","el","los","un"], a:"la"},
+    {q:"What is the plural of <i>el ajolote</i> (the axolotl)?", opts:["los ajolotes","las ajolotes","el ajolotes","los ajolote"], a:"los ajolotes"},
+    {q:"In Spanish, adjectives usually go…", opts:["after the noun (un gato negro)","before the noun (un negro gato)","at the end of the sentence","nowhere"], a:"after the noun (un gato negro)"},
+    {q:"<i>Ella canta</i> means…", opts:["She sings","I sing","They sing","We sing"], a:"She sings"},
+    {q:"Which is correct for 'a purple butterfly'?", opts:["una mariposa morada","un mariposa morado","una morada mariposa","la mariposa morado"], a:"una mariposa morada", why:"Mariposa is feminine, so the adjective changes to morada."},
+    {q:"<i>Vivo en Manchester</i> means…", opts:["I live in Manchester","I love Manchester","I visit Manchester","I'm from Manchester"], a:"I live in Manchester"},
+    {q:"Spanish is the main language of Spain and of which country where axolotls live?", opts:["Mexico","Brazil","Italy","Portugal"], a:"Mexico"}
   ]}
+
 );
 })();

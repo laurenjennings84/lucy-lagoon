@@ -18,7 +18,7 @@ const SUBJECTS = [
   {id:"science",  name:"Science Lab",    em:"🔬", bg:"linear-gradient(135deg,#8b5cf6,#4c1d95)", tint:"#ede9fe", blurb:"Bugs, bodies, forces, space"},
   {id:"history",  name:"Time Travel",    em:"🏛️", bg:"linear-gradient(135deg,#06b6d4,#4f46e5)", tint:"#cffafe", blurb:"Stone Age to Cottonopolis"},
   {id:"geography",name:"Explorer's Map", em:"🗺️", bg:"linear-gradient(135deg,#0d9488,#2563eb)", tint:"#ccfbf1", blurb:"Maps, rivers, biomes"},
-  {id:"arts",     name:"Stage Door",     em:"🎭", bg:"linear-gradient(135deg,#a855f7,#be185d)", tint:"#fae8ff", blurb:"Music, art, sewing, code, French"},
+  {id:"arts",     name:"Stage Door",     em:"🎭", bg:"linear-gradient(135deg,#a855f7,#be185d)", tint:"#fae8ff", blurb:"Music, art, sewing, code, Spanish"},
   {id:"writing",  name:"Story Studio",   em:"✍️", bg:"linear-gradient(135deg,#7c3aed,#0f766e)", tint:"#ede9fe", blurb:"Creative writing practice"}
 ];
 const subjOf = id => SUBJECTS.find(s => s.id === id);
