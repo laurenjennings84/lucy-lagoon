@@ -53,18 +53,44 @@ Nell said nothing. She was already looking for the next thing that might go wron
     {q:"Which musical is the school most likely performing?", opts:["One with a witch and a beanstalk, like Into the Woods","One set on a Greek island","One about a giant plant in a shop","One about a circus"], a:"One with a witch and a beanstalk, like Into the Woods", why:"Clues: a witch's cloak and the director asking about the beanstalk."}
   ]},
 
-{ id:"en-read-garden", subject:"english", topic:"Reading: classic fiction", title:"The Secret Garden (1911)", level:7, type:"reading",
-  source:"From The Secret Garden by Frances Hodgson Burnett (1911)",
-  passage:`When Mary Lennox was sent to Misselthwaite Manor to live with her uncle everybody said she was the most disagreeable-looking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression. Her hair was yellow, and her face was yellow because she had been born in India and had always been ill in one way or another. Her father had held a position under the English Government and had always been busy and ill himself, and her mother had been a great beauty who cared only to go to parties and amuse herself with gay people.`,
+{ id:"en-read-mill", subject:"english", topic:"Reading: classic-style fiction", title:"The Mill Girl (1842)", level:7, type:"reading",
+  passage:`The bell at the mill had not yet finished its iron clamour when Hannah Pike slipped through the gate, her clogs ringing upon the wet cobbles like a second, smaller bell. She was eleven years old, though the overlooker, a stout man whose watch-chain stretched across his waistcoat like a rope across a barrel, was in the habit of declaring that she was "nobbut a scrap of a lass" whenever her wages came to be counted.
+
+Inside, the air was thick and warm, and white with the cotton that drifted from the frames as softly as snow. It settled upon Hannah's hair and lashes until, by noon, she resembled a little old woman. Her task was to creep beneath the great spinning mules while they ran, gathering the loose fluff before it could choke the machinery. The mules did not pause for her; they rolled forward and back with a patient, terrible regularity, and a child who forgot their rhythm might lose a finger, or worse.
+
+Yet Hannah did not think herself unfortunate. Each evening she carried home a few precious coins, and each Sunday she sat in the chapel schoolroom and laboured over her letters by the light of a single lamp. "Words," the schoolmaster told her, "are a door that no overlooker can lock." She did not wholly understand him, but she wrote the sentence on the back of her hand and kept it there until it washed away.`,
   items:[
-    {q:"What does 'disagreeable-looking' mean?", opts:["unpleasant to look at","very beautiful","hard to see","looking angry at someone"], a:"unpleasant to look at"},
-    {q:"Which word is repeated three times to describe Mary?", opts:["thin","yellow","sour","little"], a:"thin", why:"Repetition makes her seem small and weak."},
-    {q:"'It was true, too.' What is the effect of this short sentence?", opts:["The narrator bluntly agrees with everyone's harsh opinion","It shows Mary is lying","It changes the setting","It introduces a new character"], a:"The narrator bluntly agrees with everyone's harsh opinion"},
-    {q:"Why was Mary's face yellow, according to the narrator?", opts:["She had been ill in India","She painted it","She ate too many lemons","It was the light"], a:"She had been ill in India"},
-    {find:true, q:"Tap the adjective that describes Mary's expression.", a:"sour"},
-    {q:"What impression do we get of Mary's parents?", opts:["They paid little attention to her","They were strict but loving","They were poor farmers","They taught her every day"], a:"They paid little attention to her"},
-    {q:"In 1911, 'gay people' in this passage most likely meant…", opts:["cheerful, lively people","people at school","sad people","farmers"], a:"cheerful, lively people", why:"Word meanings change over time. Older texts use 'gay' to mean merry or carefree."},
-    {q:"How might the reader feel about Mary by the end of the paragraph?", opts:["A little sorry for her","Jealous of her","Frightened of her","Proud of her"], a:"A little sorry for her"}
+    {q:"'her clogs ringing upon the wet cobbles like a second, smaller bell' links Hannah to the mill bell. What does this suggest?", opts:["Her life is ruled by the mill, even in the way she moves","She is late and in trouble","She enjoys making a noise","She is wearing a bell"], a:"Her life is ruled by the mill, even in the way she moves"},
+    {q:"The overlooker's watch-chain is 'like a rope across a barrel'. What does this tell us about him?", opts:["He is well-fed, unlike the workers","He is very strong","He works on a ship","He is poor"], a:"He is well-fed, unlike the workers"},
+    {q:"Why might the overlooker call Hannah 'a scrap of a lass' only when her wages are counted?", opts:["As an excuse to pay her less","Because he is fond of her","Because she has been naughty","Because she is the youngest worker"], a:"As an excuse to pay her less", why:"The timing is the clue: he only mentions her size when money is involved."},
+    {q:"The dangerous cotton dust is described as falling 'as softly as snow'. Why?", opts:["To create a contrast between how gentle it looks and how harmful it is","To show it was winter","To show the mill was cold","Because Hannah liked snow"], a:"To create a contrast between how gentle it looks and how harmful it is"},
+    {q:"'a patient, terrible regularity' suggests the machines are…", opts:["relentless and frightening because they never stop","slow and harmless","broken","quiet and peaceful"], a:"relentless and frightening because they never stop"},
+    {find:true, q:"Tap the word in the last paragraph that means 'worked hard'.", a:"laboured"},
+    {find:true, q:"Tap the word in the last paragraph that means 'completely'.", a:"wholly"},
+    {q:"What does the schoolmaster mean by 'Words are a door that no overlooker can lock'?", opts:["Learning gives you a freedom nobody can take away","Hannah should become a carpenter","The mill doors are always open","Overlookers cannot read"], a:"Learning gives you a freedom nobody can take away"},
+    {q:"Why does Hannah keep the sentence on her hand 'until it washed away'?", opts:["She treasures the idea, even if she doesn't fully understand it","She was told off for writing on herself","She wanted to show the overlooker","She had no paper at home"], a:"She treasures the idea, even if she doesn't fully understand it"},
+    {q:"Which word best describes Hannah's attitude?", opts:["hopeful","bitter","lazy","boastful"], a:"hopeful"}
+  ]},
+
+{ id:"en-read-zoos", subject:"english", topic:"Reading: non-fiction", title:"Arks or Prisons?", level:7, type:"reading",
+  passage:`Every year, millions of visitors file past the enclosures of Britain's zoos. For some, a zoo is a modern Noah's Ark: a refuge where endangered species are bred, studied and, occasionally, returned to the wild. For others, it is a prison with a gift shop.
+
+Supporters point to genuine successes. Przewalski's horse, which had vanished from the wild by the late 1960s, now roams the grasslands of Mongolia again, thanks largely to herds bred in zoos. Axolotls, almost gone from the canals of Mexico City, survive in their thousands in aquariums and laboratories. Zoos also fund research and teach children to care about creatures they might never otherwise see.
+
+Critics are unconvinced. They argue that a polar bear, which in the wild may roam across thousands of square kilometres, cannot be content in an enclosure that it can cross in a few strides. Is it really education, they ask, to watch an animal pace the same path for hours? Some species, such as elephants and orcas, are said to suffer so much in captivity that many experts believe they should not be kept at all.
+
+Perhaps the truth lies between these extremes. A good zoo is not a menagerie for our amusement but a partner in conservation; a poor one is little more than a cage. The question, then, is not whether zoos should exist, but what kind of zoos we are prepared to accept.`,
+  items:[
+    {q:"What is the main purpose of this text?", opts:["To discuss both sides of an argument","To advertise a zoo","To tell a story about a polar bear","To give instructions for visiting a zoo"], a:"To discuss both sides of an argument"},
+    {q:"'a prison with a gift shop' is a metaphor. What tone does it create?", opts:["mocking","joyful","frightened","neutral"], a:"mocking", why:"Putting a prison next to something as ordinary as a gift shop makes zoos sound ridiculous as well as cruel."},
+    {q:"Which of these is a FACT rather than an opinion?", opts:["Przewalski's horse had vanished from the wild by the late 1960s.","A poor zoo is little more than a cage.","A polar bear cannot be content in an enclosure.","Zoos are prisons."], a:"Przewalski's horse had vanished from the wild by the late 1960s."},
+    {q:"'Is it really education… to watch an animal pace the same path for hours?' is a…", opts:["rhetorical question","simile","command","quotation from a zookeeper"], a:"rhetorical question"},
+    {find:true, q:"Tap the word in paragraph 3 that means 'not persuaded'.", a:"unconvinced"},
+    {find:true, q:"Tap the word in the last paragraph that means 'a collection of wild animals kept for people to look at'.", a:"menagerie"},
+    {q:"Why do paragraphs 2 and 3 begin with 'Supporters' and 'Critics'?", opts:["To signpost the two sides of the argument","To introduce new characters","Because they are the writer's names","To list zoo staff"], a:"To signpost the two sides of the argument"},
+    {q:"Why does the writer mention axolotls?", opts:["As evidence that zoos and aquariums can save a species","To show axolotls are dangerous","Because axolotls live in Britain","To persuade you to buy one"], a:"As evidence that zoos and aquariums can save a species"},
+    {q:"The word 'Perhaps' at the start of the last paragraph makes the writer sound…", opts:["thoughtful and open-minded","angry","certain and bossy","confused"], a:"thoughtful and open-minded"},
+    {q:"What is the writer's final conclusion?", opts:["It depends on what kind of zoo it is","All zoos should close","Zoos are always good","Polar bears should live in zoos"], a:"It depends on what kind of zoo it is"}
   ]},
 
 { id:"en-read-eagle", subject:"english", topic:"Reading: poetry", title:"The Eagle (Tennyson)", level:7, type:"reading",
