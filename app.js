@@ -459,6 +459,7 @@ function home(){
       <p>${P.xp} XP${r.next ? ` · ${r.next-P.xp} to the next level` : " · top level!"}</p><div class="xpbar"><b style="width:${pct}%"></b></div></div></div>
     <div class="row" style="margin-top:16px"><span class="muted" style="font-weight:800">My level:</span>${[5,6,7].map(l => `<button class="chip ${P.target===l?"on":""}" data-tl="${l}">${LVNAME[l]}</button>`).join("")}</div>
     <button class="feature" id="daily"><span class="em" style="background:linear-gradient(135deg,#99f6e4,#c4b5fd)">🌊</span><span><b>Today's Lagoon Dive</b><br><span class="muted">10 mixed questions picked just for you</span></span></button>
+    <button class="feature" id="tt" style="background:linear-gradient(135deg,#0891b2,#6d28d9);color:#fff"><span class="em" style="background:rgba(255,255,255,.2)">✖️</span><span><b style="color:#fff">Times Table Tide</b><br><span style="opacity:.9">Sprint, Bubble Pop and the 6-second challenge · ⭐ ${Object.values(ttData(P).facts).filter(f => fstate(f) === "star").length}/66 instant</span></span></button>
     <div class="row" style="gap:10px;align-items:stretch">
       <button class="feature" id="mock" style="flex:1;margin:0"><span class="em" style="background:#dbeafe">⏳</span><span><b>Mock paper</b><br><span class="muted">Timed, like the real test</span></span></button>
       <button class="feature" id="fix" style="flex:1;margin:0"><span class="em" style="background:#ffe4e6">🛟</span><span><b>Fix-it Pond</b><br><span class="muted">${fix ? fix + " to fix" : "Nothing to fix!"}</span></span></button></div>
@@ -469,7 +470,7 @@ function home(){
     <button class="feature" id="type"><span class="em" style="background:#ccfbf1">⌨️</span><span><b>Speedy Fingers</b><br><span class="muted">Typing practice${P.typing.length ? ` · best ${Math.max(...P.typing.map(t => t.wpm))} wpm` : ""}</span></span></button>`;
   $$("[data-tl]").forEach(b => b.onclick = () => { P.target = +b.dataset.tl; save(); home(); });
   $$("[data-w]").forEach(b => b.onclick = () => b.dataset.w === "writing" ? studio() : world(b.dataset.w));
-  $("#daily").onclick = daily; $("#mock").onclick = mockMenu; $("#fix").onclick = fixIt; $("#stk").onclick = stickers; $("#type").onclick = typing; $("#set").onclick = settings;
+  $("#daily").onclick = daily; $("#tt").onclick = ttHome; $("#mock").onclick = mockMenu; $("#fix").onclick = fixIt; $("#stk").onclick = stickers; $("#type").onclick = typing; $("#set").onclick = settings;
   const d = $("#dash"); if(d) d.onclick = dashboard;
   top0();
 }
@@ -534,7 +535,9 @@ function mockMenu(){
 /* stickers */
 function stickers(){
   app.innerHTML = `<button class="back" id="bk">← Home</button><h1>Sticker <em>book</em></h1><p class="muted">${P.stickers.length} of ${STICKERS.length} collected. Earn one for every ${STARS_PER_STICKER} new stars.</p>
-    <div class="stickers">${STICKERS.map((s,i) => `<div class="stk ${P.stickers.includes(i)?"":"locked"}"><span class="e">${s[0]}</span><small>${P.stickers.includes(i) ? s[1] : "?"}</small></div>`).join("")}</div>`;
+    <div class="stickers">${STICKERS.map((s,i) => `<div class="stk ${P.stickers.includes(i)?"":"locked"}"><span class="e">${s[0]}</span><small>${P.stickers.includes(i) ? s[1] : "?"}</small></div>`).join("")}</div>
+    <h2 style="margin-top:18px">Times table badges</h2><p class="muted">Win one by making every fact in a table instant in Times Table Tide.</p>
+    <div class="stickers">${[2,3,4,5,6,7,8,9,10,11,12].map(t => { const has = ttData(P).badges.includes(t); return `<div class="stk ${has?"":"locked"}"><span class="e">${TT_BADGES[t][0]}</span><small><b>${t}×</b> ${has ? TT_BADGES[t][1] : "?"}</small></div>`; }).join("")}</div>`;
   $("#bk").onclick = home; top0();
 }
 
@@ -670,7 +673,7 @@ function report(p){
     "Weakest topics:", ...(s.weak.length ? s.weak.map(w => `- ${w.k.replace("|"," › ")}: ${w.p}% (${w.n} questions)`) : ["- not enough data yet"]), "",
     "Most-missed questions:", ...(s.missed.length ? s.missed.map(m => `- [${m.item.sub}, ${LVNAME[m.item.lv]||""}] ${strip(m.item.q || m.item.text || "").slice(0,140)} (answer: ${strip(m.item.a ?? (m.item.ans||[]).join(", "))})`) : ["- none"]), "",
     `Writing pieces saved: ${p.writing.length}${p.writing.length ? `, last: "${p.writing[p.writing.length-1].t}" (${p.writing[p.writing.length-1].words} words)` : ""}`,
-    p.typing.length ? `Typing: best ${Math.max(...p.typing.map(t => t.wpm))} wpm` : "", "",
+    p.typing.length ? `Typing: best ${Math.max(...p.typing.map(t => t.wpm))} wpm` : "", ttReport(p), "",
     "Please write new question packs for Lucy's 11+ Lagoon app aimed at these weak spots. She is in Year 5, preparing for the Trafford FSCE 11+ (September 2027), aiming for Urmston Grammar. She loves axolotls, bugs, animals, sewing, singing and musicals, and the colours teal, blue and purple.",
     "", "Pack format (JSON, paste whole thing into the dashboard):",
     '{"sets":[ {"subject":"maths|english|science|history|geography|arts|writing", "topic":"…", "title":"…", "level":5|6|7, "type":"quiz", "items":[{"q":"…","opts":["…","…","…","…"],"a":"exact copy of the right option","why":"optional short explanation"}]},',
@@ -709,6 +712,7 @@ function playerCard(p, i){
     <h3>Topics to work on</h3>${s.weak.length ? `<table>${s.weak.map(w => `<tr><td>${esc(w.k.replace("|"," › "))}</td><td class="${w.p>=80?"good":w.p>=60?"ok":"badc"}"><b>${w.p}%</b></td><td class="note">${w.n} Qs</td></tr>`).join("")}</table>` : `<p class="note">Needs a few more rounds.</p>`}
     <h3>Recent rounds</h3><table><tr><th>When</th><th>Activity</th><th>Score</th><th>Time</th></tr>${p.attempts.slice(-12).reverse().map(a => `<tr><td>${new Date(a.ts).toLocaleDateString("en-GB",{day:"numeric",month:"short"})}</td><td>${esc(a.t||a.s)}</td><td>${a.c}/${a.n}</td><td>${mmss(a.sec||0)}</td></tr>`).join("")}</table>
     <h3>Writing (${p.writing.length})</h3>${p.writing.slice().reverse().slice(0,10).map((w,k) => { const j = p.writing.length-1-k; return `<details class="wr"><summary>${esc(w.t)} · ${w.words} words · ${w.mins ? w.mins+" min" : "under 1 min"} · ${new Date(w.ts).toLocaleDateString("en-GB")}</summary><pre>${esc(w.text)}</pre><button class="btn ghost small" data-wf="${i}:${j}">Copy for Claude feedback</button></details>`; }).join("") || `<p class="note">None yet.</p>`}
+    ${ttCard(p)}
     ${p.typing.length ? `<p class="note">⌨️ Typing best ${Math.max(...p.typing.map(t=>t.wpm))} wpm · latest ${p.typing[p.typing.length-1].wpm} wpm, ${p.typing[p.typing.length-1].acc}% accurate</p>` : ""}
     <div class="row"><button class="btn small" data-copy="${i}">Copy report for Claude</button></div></div>`;
 }
@@ -731,7 +735,7 @@ function checkSet(c){
 }
 const slug = t => String(t).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,100) || "set";
 function mergeContent(list){
-  (list||[]).forEach(raw => { if(!raw || raw.deleted || checkSet(raw)) return;
+  (list||[]).forEach(raw => { if(raw && raw.json && !raw.deleted){ try{ raw = JSON.parse(raw.json); }catch(e){ return; } } if(!raw || raw.deleted || checkSet(raw)) return;
     const c = JSON.parse(JSON.stringify(raw)); c.custom = true; c.level = +c.level; c.id = "pk-" + slug(c.title);
     const i = SETS.findIndex(x => x.id === c.id); i >= 0 ? SETS[i] = c : SETS.push(c); });
 }
@@ -742,7 +746,7 @@ async function addPack(){
   const bad = sets.map((s,i) => [i, checkSet(s)]).filter(x => x[1]);
   if(bad.length){ fb.innerHTML = `<p class="fb bad">Set ${bad[0][0]+1}: ${esc(bad[0][1])}. Nothing was added.</p>`; return; }
   try{
-    for(const s of sets){ if(CLOUD && MODE !== "local") await CLOUD.addContent(slug(s.title), {...s, added:Date.now()}); else { const loc = JSON.parse(localStorage.getItem(LKEY+":packs")||"[]"); loc.push({...s, added:Date.now()}); localStorage.setItem(LKEY+":packs", JSON.stringify(loc)); } }
+    for(const s of sets){ if(CLOUD && MODE !== "local") await CLOUD.addContent(slug(s.title), {title:s.title, subject:s.subject, level:s.level, json:JSON.stringify(s), added:Date.now()}); else { const loc = JSON.parse(localStorage.getItem(LKEY+":packs")||"[]"); loc.push({...s, added:Date.now()}); localStorage.setItem(LKEY+":packs", JSON.stringify(loc)); } }
     mergeContent(sets); fb.innerHTML = `<p class="fb good">Added ${sets.length} set${sets.length>1?"s":""} ✓ They're in Lucy's app now.</p>`; $("#pack").value = ""; listPacks();
   }catch(e){ fb.innerHTML = `<p class="fb bad">Couldn't save: ${esc(e.code||e.message)}. Check your email is in the Firestore rules.</p>`; }
 }
