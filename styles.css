@@ -204,7 +204,7 @@ details.ptoggle summary{cursor:pointer;font-weight:800;color:var(--teal-d);margi
 .stickers{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:10px}
 .stk{background:#fff;border-radius:18px;padding:10px 4px;text-align:center;box-shadow:0 4px 12px -8px rgba(0,0,0,.3)}
 .stk .e{font-size:2.3rem;display:block} .stk small{font-size:.7rem;display:block;line-height:1.1;margin-top:4px}
-.stk.locked .e{filter:grayscale(1) brightness(1.6) opacity(.35)}
+.stk.locked .e{filter:grayscale(1) brightness(1.3) opacity(.45)}
 
 /* writing */
 textarea,input[type=text],select{font:inherit;width:100%;border:3px solid var(--purple-l);border-radius:16px;padding:12px;background:#fff;color:var(--ink)}
@@ -246,3 +246,28 @@ details.wr pre{white-space:pre-wrap;font-family:var(--font);font-size:.95rem}
 .results .lot{width:150px;display:block;margin:0 auto}
 .bigstars .dim{filter:grayscale(1);opacity:.25}
 html{background:#ede9fe}
+
+/* Times Table Tide */
+.ttmodes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.ttmode{color:#fff;border-radius:22px;padding:14px;text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;min-height:118px}
+.ttmode .em{font-size:2rem} .ttmode b{font-family:var(--display);font-size:1.1rem;font-weight:600} .ttmode small{color:rgba(255,255,255,.9);font-size:.8rem}
+.ttgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;font-size:.72rem;max-width:520px;margin:0 auto}
+.ttgrid b{display:grid;place-items:center;color:var(--purple-d);font-weight:800}
+.ttgrid i{font-style:normal;display:grid;place-items:center;aspect-ratio:1;border-radius:6px;font-weight:700;color:#1e1b4b}
+.ttgrid.small{max-width:300px} .ttgrid.small i{border-radius:3px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.ttarena{max-width:420px;margin:0 auto}
+.ttstats{display:flex;justify-content:space-between;font-weight:800;font-size:1.2rem;margin:10px 4px;color:var(--purple-d)}
+.combo{color:#ea580c}
+.ttq{font-family:var(--display);font-size:3.4rem;font-weight:600;text-align:center;color:var(--blue-d);margin:10px 0}
+.ttfb{text-align:center;font-weight:800;min-height:1.6em;margin:8px 0;color:var(--purple-d)}
+.keypad.tt{grid-template-columns:repeat(3,1fr)} .keypad.tt button{padding:18px 0;font-size:1.7rem}
+.keypad .okk{background:linear-gradient(135deg,var(--teal),var(--purple));color:#fff}
+.pond{position:relative;height:56vh;min-height:360px;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#a5f3fc 0%,#93c5fd 55%,#6366f1 100%);box-shadow:inset 0 0 40px rgba(30,27,75,.25)}
+.bubble{position:absolute;bottom:-90px;width:21%;aspect-ratio:1;border-radius:50%;font-family:var(--display);font-size:1.6rem;font-weight:600;color:#1e1b4b;border:2px solid rgba(255,255,255,.8);box-shadow:0 6px 18px rgba(30,27,75,.25);animation:floatup linear forwards}
+@keyframes floatup{0%{transform:translateY(0)}50%{transform:translateY(-34vh) translateX(8px)}100%{transform:translateY(-72vh) translateX(-6px)}}
+.bubble.popped{animation:none;transform:scale(1.6);opacity:0;transition:transform .25s,opacity .25s}
+.bubble.bad{filter:grayscale(1);opacity:.5} .bubble.hint{outline:4px solid #fff;animation-play-state:paused}
+.ttchips{display:flex;flex-wrap:wrap;gap:8px} .ttchips span{border-radius:12px;padding:6px 10px;font-weight:700}
+.ttchips .miss{background:#ffe4e6} .ttchips .slow{background:#fef3c7}
